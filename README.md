@@ -1,8 +1,11 @@
 # Kali Linux 2020.4 Docker Container with XFCE Desktop over VNC / noVNC
 
-Did you ever wanted to start a fully-fledged Kali Linux Docker container with a full desktop experience? If so, then this Docker image suits your needs: it provides quick access to all Kali Linux tools via CLI and even a Kali Desktop of your choice – directly from within the Docker container. Therefore, it uses the `tightvncserver` to provide a VNC connection to the container and `novnc` for simple VNC access with your browser.
+Did you ever wanted to start a fully-fledged Kali Linux Docker container with a full desktop experience? If so, then this Docker image suits your needs: it provides quick access to all Kali Linux tools via CLI and even a Kali Desktop of your choice – directly from within the Docker container. Therefore, it uses the `x11vnc` to provide a VNC connection to the container and `novnc` for simple VNC access with your browser.
 
 **IMPORTANT:** This image is for testing purposes only. Do not run it on any production systems or for any productive purposes. Feel free to modify it as you like – build instructions are given below.
+
+## TO DO
+- Add image to Docker Hub
 
 ## 1) Pull
 
@@ -50,8 +53,8 @@ The default configuration is set as follows. Feel free to change this as require
 You can also build a custom image, i.e., if you want to use another Kali Desktop. If so, you can simply pass the Kali Desktop of your choice (i.e., `mate`, `gnome`, ...) as build argument. By default, the XFCE Desktop is configured. You may also edit the `Dockerfile` or `entrypoint.sh` to install custom packages. Also, you can specify different Kali Linux metapackages, i.e., `core`, `default`, `light`, `large`, `everything`, or `top10`. See [https://www.kali.org/news/major-metapackage-makeover/](https://www.kali.org/news/major-metapackage-makeover/) for more details and metapackages.
 
 ```
-git clone https://github.com/iphoneintosh/kali-docker
-cd kali-docker
-docker build -t myKali --build-arg KALI_DESKTOP=xfce KALI_METAPACKAGE=large .
-docker run --rm -it -p 9020:8080 -p 9021:5900 myKali
+git clone https://github.com/ProAdmin007/kali-docker-vnc-novnc
+cd kali-docker-vnc-novnc
+docker build -t kaligui --build-arg KALI_METAPACKAGE=large .
+docker run --rm -it -p 9020:8080 -p 9021:5900 kaligui
 ```
