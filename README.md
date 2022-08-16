@@ -1,4 +1,4 @@
-# Kali Linux 2020.4 Docker Container with XFCE Desktop over VNC / noVNC
+# Kali Linux latest Docker Container with XFCE Desktop over VNC / noVNC
 
 Did you ever wanted to start a fully-fledged Kali Linux Docker container with a full desktop experience? If so, then this Docker image suits your needs: it provides quick access to all Kali Linux tools via CLI and even a Kali Desktop of your choice – directly from within the Docker container. Therefore, it uses the `x11vnc` to provide a VNC connection to the container and `novnc` for simple VNC access with your browser.
 
@@ -12,7 +12,7 @@ Did you ever wanted to start a fully-fledged Kali Linux Docker container with a 
 First, pull the image:
 
 ```
-docker pull iphoneintosh/kali-docker:latest
+docker pull proadmin007/kali-docker-vnc-novnc:default
 ```
 
 You can also pull images with preconfigured metapackages: `iphoneintosh/kali-docker:default`, `iphoneintosh/kali-docker:large`, or `iphoneintosh/kali-docker:top10`.
@@ -22,7 +22,7 @@ You can also pull images with preconfigured metapackages: `iphoneintosh/kali-doc
 Second, start a new container from the previously pulled image. This opens a new shell on your console as well as a Kali Desktop which you can access in your browser on `https://localhost:8080/vnc.html`.
 
 ```
-docker run --rm -it -p 9020:8080 -p 9021:5900 iphoneintosh/kali-docker:latest
+docker run -itd -p 9020:8080 -p 9021:5900 proadmin007/kali-docker-vnc-novnc:default
 ```
 
 The default configuration is set as follows. Feel free to change this as required.
