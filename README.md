@@ -55,6 +55,6 @@ You can also build a custom image, i.e., if you want to use another Kali Desktop
 ```
 git clone https://github.com/ProAdmin007/kali-docker-vnc-novnc
 cd kali-docker-vnc-novnc
-docker build -t kaligui --build-arg KALI_METAPACKAGE=large .
+docker build -t kaligui .
 docker run --rm -it -p 9020:8080 -p 9021:5900 kaligui
 ```
